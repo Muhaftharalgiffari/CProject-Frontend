@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChiliDetect - Deteksi Penyakit Daun Cabai</title>
+    <meta name="theme-color" content="#E63946">
+    <meta name="description" content="Aplikasi deteksi penyakit cabai menggunakan AI">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.ico">
+    <title>ChiliDetect</title>
 </head>
 <body>
     <div id="app" class="flex flex-col min-h-screen bg-gradient-to-b from-[#f8fafc] via-[#f8fafc] to-[#f87171] font-poppins">
@@ -99,5 +103,18 @@
         </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch((err) => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html> 

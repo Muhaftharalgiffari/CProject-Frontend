@@ -1,0 +1,16 @@
+{
+  "name": "ChiliDetect",
+  "short_name": "ChiliDetect",
+  "description": "Aplikasi deteksi penyakit cabai menggunakan AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E63946",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+} 
