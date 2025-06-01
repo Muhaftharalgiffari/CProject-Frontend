@@ -148,15 +148,32 @@ window.initDetectPage = () => {
                 alert('Silakan pilih atau ambil gambar terlebih dahulu');
                 return;
             }
+
             try {
                 predictButton.disabled = true;
                 predictButton.textContent = 'Memproses...';
+                
+                // Validasi ukuran file (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    throw new Error('Ukuran file terlalu besar. Maksimal 5MB');
+                }
+
+                // Validasi tipe file
+                if (!file.type.startsWith('image/')) {
+                    throw new Error('File harus berupa gambar');
+                }
+
                 const result = await uploadImage(file);
                 displayResult(result);
                 saveHistory(result);
             } catch (error) {
                 console.error('Error:', error);
-                alert('Terjadi kesalahan saat memproses gambar');
+                resultContainer.innerHTML = `
+                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+                        <p class="font-bold">Error</p>
+                        <p>${error.message || 'Terjadi kesalahan saat memproses gambar'}</p>
+                    </div>
+                `;
             } finally {
                 predictButton.disabled = false;
                 predictButton.textContent = 'Deteksi';

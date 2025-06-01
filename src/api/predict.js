@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://cproject-backend-production.up.railway.app/api';
 
 export const uploadImage = async (file) => {
   try {
@@ -8,16 +8,20 @@ export const uploadImage = async (file) => {
     const response = await fetch(`${API_URL}/predict`, {
       method: 'POST',
       body: formData,
+      headers: {
+        'Accept': 'application/json',
+      },
     });
 
     if (!response.ok) {
-      throw new Error('Gagal mengupload gambar');
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || 'Gagal mengupload gambar');
     }
 
     return await response.json();
   } catch (error) {
     console.error('Error:', error);
-    throw error;
+    throw new Error(error.message || 'Gagal mengupload gambar');
   }
 };
 
