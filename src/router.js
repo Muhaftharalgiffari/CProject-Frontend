@@ -4,6 +4,7 @@ import { History } from './pages/History.js';
 import { Types } from './pages/Types.js';
 import { About } from './pages/About.js';
 import { initNavbar } from './components/Navbar.js';
+import { Chatbot } from './components/Chatbot.js';
 
 const routes = {
     '/': Home,
@@ -17,10 +18,14 @@ let isFirstRender = true;
 
 export const renderPage = (path) => {
     const mainContent = document.getElementById('main-content');
-    if (!mainContent) return;
+    const chatbot = document.getElementById('chatbot');
+    if (!mainContent || !chatbot) return;
 
     // Selalu render ulang navbar
     initNavbar();
+
+    // Render chatbot
+    chatbot.innerHTML = Chatbot();
 
     if (isFirstRender) {
         // Render langsung tanpa transisi

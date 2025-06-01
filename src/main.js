@@ -4,6 +4,7 @@ import { renderPage } from './router.js';
 import { uploadImage, saveHistory, getHistory } from './api/predict.js';
 import { DISEASE_INFO } from './api/diseaseInfo.js';
 import jsPDF from 'jspdf';
+import { initChatbot } from './components/Chatbot.js';
 
 // Inisialisasi aplikasi
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render halaman awal
     renderPage(window.location.pathname);
+
+    // Inisialisasi chatbot
+    initChatbot();
 });
 
 // Fungsi untuk inisialisasi halaman deteksi
