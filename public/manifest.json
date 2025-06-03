@@ -6,11 +6,56 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#E63946",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": ["utilities", "productivity", "agriculture"],
+  "lang": "id",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/assets/images/favicon.ico",
       "sizes": "64x64",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshot-1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg",
+      "platform": "wide",
+      "label": "Halaman Utama ChiliDetect"
+    },
+    {
+      "src": "/assets/images/screenshot-2.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg",
+      "platform": "wide",
+      "label": "Halaman Deteksi ChiliDetect"
     }
   ]
 } 
